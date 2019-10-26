@@ -94,7 +94,7 @@ void checkCommand()
       case '#':
         serialPrintDeviceInfo();
         break;
-      case 'F':
+      case 'M':
         setFanMode(msg);
         break;
       case 'S':
@@ -195,7 +195,7 @@ void serialPrintData()
       Serial.print("J:");
       Serial.print(maxHumidity);
       Serial.print(";");
-      Serial.print("F:");
+      Serial.print("M:");
       Serial.print(fanMode);
       Serial.print(";");
       Serial.print("I:");
