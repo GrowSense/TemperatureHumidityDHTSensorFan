@@ -33,10 +33,10 @@ namespace TemperatureHumidityDHTSensorFan.Tests.Integration
 
             ResetDeviceSettings ();
 
-            var cmd = "F" + (int)FanCommand;
+            var cmd = "M" + (int)FanCommand;
 
             SendDeviceCommand (cmd);
-			
+
             //SimulateDHTSensor(SimulatedTemperature, SimulatedHumidity);
 
             SendDeviceCommand ("S" + MinTemperature);
@@ -60,7 +60,7 @@ namespace TemperatureHumidityDHTSensorFan.Tests.Integration
 
         public void CheckDataValues (Dictionary<string, string> dataEntry)
         {
-            AssertDataValueEquals (dataEntry, "F", (int)FanCommand);
+            AssertDataValueEquals (dataEntry, "M", (int)FanCommand);
             AssertDataValueEquals (dataEntry, "U", MaxTemperature);
             AssertDataValueEquals (dataEntry, "S", MinTemperature);
             AssertDataValueEquals (dataEntry, "J", MaxHumidity);
