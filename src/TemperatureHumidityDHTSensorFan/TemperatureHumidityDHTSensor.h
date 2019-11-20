@@ -27,10 +27,10 @@ void turnTemperatureHumidityDHTSensorOff();
 void takeTemperatureHumidityDHTSensorReading();
 
 void setTemperature(char* msg);
-void setTemperature(long readInterval);
+void setTemperature(long temperature);
 
 void setHumidity(char* msg);
-void setHumidity(long readInterval);
+void setHumidity(long humidity);
 
 void setTemperatureHumidityDHTSensorReadingInterval(char* msg);
 void setTemperatureHumidityDHTSensorReadingInterval(long readInterval);

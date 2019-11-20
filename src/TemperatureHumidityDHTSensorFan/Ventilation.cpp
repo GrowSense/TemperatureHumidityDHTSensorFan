@@ -250,9 +250,9 @@ void setFanMode(char* msg)
   }
 }
 
-void setFanMode(int newStatus)
+void setFanMode(int newMode)
 {
-  fanMode = newStatus;
+  fanMode = newMode;
 }
 
 void setMaxTemperature(char* msg)
