@@ -2,17 +2,17 @@
 
 namespace TemperatureHumidityDHTSensorFan.Tests.Integration
 {
-    public class ReadIntervalCommandTestHelper : SerialCommandTestHelper
+  public class ReadIntervalCommandTestHelper : SerialCommandTestHelper
+  {
+    public int ReadingInterval = 5;
+
+    public void TestSetReadIntervalCommand ()
     {
-        public int ReadingInterval = 5;
+      Key = "I";
+      Value = ReadingInterval.ToString ();
+      Label = "reading interval";
 
-        public void TestSetReadIntervalCommand ()
-        {
-            Letter = "I";
-            Value = ReadingInterval;
-            Label = "reading interval";
-
-            TestCommand ();
-        }
+      TestCommand ();
     }
+  }
 }

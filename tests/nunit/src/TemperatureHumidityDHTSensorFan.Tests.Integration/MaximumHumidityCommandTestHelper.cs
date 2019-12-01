@@ -2,17 +2,17 @@
 
 namespace TemperatureHumidityDHTSensorFan.Tests.Integration
 {
-    public class MaximumHumidityCommandTestHelper : SerialCommandTestHelper
+  public class MaximumHumidityCommandTestHelper : SerialCommandTestHelper
+  {
+    public int MaximumHumidity = 30;
+
+    public void TestMaximumHumidityCommand ()
     {
-        public int MaximumHumidity = 30;
+      Key = "J";
+      Value = MaximumHumidity.ToString ();
+      Label = "maximum humidity";
 
-        public void TestMaximumHumidityCommand ()
-        {
-            Letter = "J";
-            Value = MaximumHumidity;
-            Label = "maximum humidity";
-
-            TestCommand ();
-        }
+      TestCommand ();
     }
+  }
 }

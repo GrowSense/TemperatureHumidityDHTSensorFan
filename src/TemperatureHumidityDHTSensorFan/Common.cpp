@@ -6,7 +6,7 @@
 const int ANALOG_MAX = 1023;
 
 unsigned long lastSerialOutputTime = 0;
-long serialOutputIntervalInSeconds = 1;
+long serialOutputIntervalInSeconds = 3;
 
 bool isDebugMode = false;
 
@@ -37,45 +37,6 @@ void serialPrintLoopFooter()
   }*/
 }
 
-void EEPROMWriteLong(int address, long value)
-{
-      //Decomposition from a long to 4 bytes by using bitshift.
-      //One = Most significant -> Four = Least significant byte
-      byte four = (value & 0xFF);
-      byte three = ((value >> 8) & 0xFF);
-      byte two = ((value >> 16) & 0xFF);
-      byte one = ((value >> 24) & 0xFF);
-
-      //Write the 4 bytes into the eeprom memory.
-      EEPROM.write(address, four);
-      EEPROM.write(address + 1, three);
-      EEPROM.write(address + 2, two);
-      EEPROM.write(address + 3, one);
-}
-
-long EEPROMReadLong(int address)
-{
-      //Read the 4 bytes from the eeprom memory.
-      long four = EEPROM.read(address);
-      long three = EEPROM.read(address + 1);
-      long two = EEPROM.read(address + 2);
-      long one = EEPROM.read(address + 3);
-
-      //Return the recomposed long by using bitshift.
-      return ((four << 0) & 0xFF) + ((three << 8) & 0xFFFF) + ((two << 16) & 0xFFFFFF) + ((one << 24) & 0xFFFFFFFF);
-}
-
-void setEEPROMFlag(int eepromFlagAddress)
-{
-  /*if (isDebugMode)
-  {
-    Serial.print("Setting EEPROM flag");
-  }*/
-
-  if (EEPROM.read(eepromFlagAddress) != 99)
-    EEPROM.write(eepromFlagAddress, 99);
-}
-
 unsigned long secondsToMilliseconds(int seconds)
 {
   return seconds * 1000;
@@ -84,5 +45,25 @@ unsigned long secondsToMilliseconds(int seconds)
 float millisecondsToSecondsWithDecimal(int milliseconds)
 {
   return float(milliseconds) / float(1000);
+}
+
+int readInt(char* text, int startPosition, int digitCount)
+{
+  char buffer[digitCount];
+
+  if (isDebugMode)
+    Serial.println("Reading int");
+
+  for (int i = 0; i < digitCount; i++)
+  {
+    buffer[i] = text[startPosition+i];
+
+    //if (verboseCom)
+    //  Serial.println(buffer[i]);
+  }
+
+  int number = atoi(buffer);
+
+  return number;
 }
 

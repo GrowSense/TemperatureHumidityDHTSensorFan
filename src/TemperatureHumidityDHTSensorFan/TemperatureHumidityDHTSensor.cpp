@@ -2,9 +2,11 @@
 #include <EEPROM.h>
 #include <DHT.h>
 
-#include <duinocom.h>
+#include <duinocom2.h>
 
 #include "Common.h"
+#include "EEPROMHelper.h"
+#include "SerialOutput.h"
 #include "TemperatureHumidityDHTSensor.h"
 
 DHT dht;
@@ -174,7 +176,7 @@ void setTemperatureHumidityDHTSensorReadingInterval(long newValue)
 
   EEPROMWriteLong(temperatureHumidityDHTSensorReadingIntervalAddress, newValue);
 
-  setEEPROMFlag(temperatureHumidityDHTSensorReadIntervalIsSetFlagAddress);
+  EEPROMSetFlag(temperatureHumidityDHTSensorReadIntervalIsSetFlagAddress);
 
   temperatureHumidityDHTSensorReadingIntervalInSeconds = newValue; 
 

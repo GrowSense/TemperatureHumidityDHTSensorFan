@@ -2,9 +2,10 @@
 
 #include <EEPROM.h>
 
-#include <duinocom.h>
+#include <duinocom2.h>
 
 #include "Common.h"
+#include "EEPROMHelper.h"
 #include "TemperatureHumidityDHTSensor.h"
 #include "Ventilation.h"
 
@@ -279,7 +280,7 @@ void setMaxTemperature(int newMaxTemperature)
 
   EEPROM.write(maxTemperatureEEPROMAddress, maxTemperature);
 
-  setEEPROMFlag(maxTemperatureIsSetEEPROMFlagAddress);
+  EEPROMSetFlag(maxTemperatureIsSetEEPROMFlagAddress);
 }
 
 int getMaxTemperature()
@@ -327,7 +328,7 @@ void setMinTemperature(int newMinTemperature)
 
   EEPROM.write(minTemperatureEEPROMAddress, newMinTemperature);
   
-  setEEPROMFlag(minTemperatureIsSetEEPROMFlagAddress);
+  EEPROMSetFlag(minTemperatureIsSetEEPROMFlagAddress);
 }
 
 int getMinTemperature()
@@ -375,7 +376,7 @@ void setMaxHumidity(int newMaxHumidity)
 
   EEPROM.write(maxHumidityEEPROMAddress, newMaxHumidity);
   
-  setEEPROMFlag(maxHumidityIsSetEEPROMFlagAddress);
+  EEPROMSetFlag(maxHumidityIsSetEEPROMFlagAddress);
 }
 
 int getMaxHumidity()
@@ -420,7 +421,7 @@ void setMinHumidity(int newMinHumidity)
 
   EEPROM.write(minHumidityEEPROMAddress, newMinHumidity);
   
-  setEEPROMFlag(minHumidityIsSetEEPROMFlagAddress);
+  EEPROMSetFlag(minHumidityIsSetEEPROMFlagAddress);
 }
 
 int getMinHumidity()

@@ -2,17 +2,17 @@
 
 namespace TemperatureHumidityDHTSensorFan.Tests.Integration
 {
-    public class MinimumTemperatureCommandTestHelper : SerialCommandTestHelper
+  public class MinimumTemperatureCommandTestHelper : SerialCommandTestHelper
+  {
+    public int MinimumTemperature = 30;
+
+    public void TestMinimumTemperatureCommand ()
     {
-        public int MinimumTemperature = 30;
+      Key = "S";
+      Value = MinimumTemperature.ToString ();
+      Label = "minimum temperature";
 
-        public void TestMinimumTemperatureCommand ()
-        {
-            Letter = "S";
-            Value = MinimumTemperature;
-            Label = "minimum temperature";
-
-            TestCommand ();
-        }
+      TestCommand ();
     }
+  }
 }

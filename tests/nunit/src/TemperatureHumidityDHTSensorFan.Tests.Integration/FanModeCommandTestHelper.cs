@@ -8,8 +8,8 @@ namespace TemperatureHumidityDHTSensorFan.Tests.Integration
 
     public void TestFanCommand ()
     {      
-      Letter = "M";
-      Value = (int)FanMode;
+      Key = "M";
+      Value = ((int)FanMode).ToString ();
       Label = "fan mode";
       ValueIsSavedInEEPROM = false; // TODO: Save the fan mode in EEPROM in the sketch then change this to true
 

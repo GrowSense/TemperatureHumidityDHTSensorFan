@@ -11,5 +11,4 @@ sh inject-board-type.sh "uno" && \
 pio run --target upload --environment=uno --upload-port=$PORT_NAME || exit 1
 
 echo ""
-echo ""
 echo "Upload complete"
