@@ -18,8 +18,8 @@ namespace TemperatureHumidityDHTSensorFan.Tests.Integration
     public int DeviceBaudRate = 0;
     public string SimulatorPort;
     public int SimulatorBaudRate = 0;
-    public int DelayAfterConnectingToHardware = 500;
-    public int DelayAfterDisconnectingFromHardware = 500;
+    public int DelayAfterConnectingToHardware = 5000;
+    public int DelayAfterDisconnectingFromHardware = 1000;
     public string DataPrefix = "D;";
     public string DataPostFix = ";;";
     public int TimeoutWaitingForResponse = 20 * 1000;
