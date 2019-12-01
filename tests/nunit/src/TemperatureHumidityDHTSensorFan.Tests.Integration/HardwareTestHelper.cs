@@ -26,7 +26,7 @@ namespace TemperatureHumidityDHTSensorFan.Tests.Integration
     public int AnalogPinMaxValue = 1023;
     public bool On = true;
     public bool Off = false;
-    public string FullDeviceOutput;
+    public string FullDeviceOutput = "";
     public int ResetTriggerPin = 4;
     public string VentilatorStartText = "Starting DHT ventilator";
     public string DeviceOnlineText = "Online";
