@@ -26,6 +26,8 @@ void setup()
 
   serialOutputIntervalInSeconds = temperatureHumidityDHTSensorReadingIntervalInSeconds;
 
+  Serial.println("Online");
+
 }
 
 void loop()
