@@ -11,10 +11,9 @@ namespace TemperatureHumidityDHTSensorFan.Tests.Integration
     {
       using (var helper = new SerialCommandTestHelper ()) {
         helper.Label = "Device name";
-        helper.Value = "device" + new Random ().Next (100).ToString ();
+        helper.Value = "ventilator" + new Random ().Next (100).ToString ();
         helper.Key = "Name";
-        helper.ValueIsOutputAsData = false;
-        helper.ValueIsOutputAsData = false;
+        helper.ValueIsOutputAsData = true;
         helper.RequiresResetSettings = false;
         helper.SeparateKeyValueWithColon = true;
         helper.CheckExpectedSerialOutput = true;
