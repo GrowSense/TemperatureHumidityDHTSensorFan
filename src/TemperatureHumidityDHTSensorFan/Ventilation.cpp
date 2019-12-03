@@ -457,14 +457,9 @@ void restoreDefaultMaxTemperature()
 {
   //Serial.println("Reset max temperature");
 
-  removeMaxTemperatureEEPROMIsSetFlag();
+  EEPROMRemoveFlag(maxTemperatureIsSetEEPROMFlagAddress);
 
   maxTemperature = 30;
 
   setMaxTemperature(maxTemperature);
-}
-
-void removeMaxTemperatureEEPROMIsSetFlag()
-{
-    EEPROM.write(maxTemperatureIsSetEEPROMFlagAddress, 0);
 }

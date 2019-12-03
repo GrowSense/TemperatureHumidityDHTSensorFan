@@ -134,9 +134,7 @@ void setHumidity(long newValue)
 /* Reading interval */
 void setupTemperatureHumidityDHTSensorReadingInterval()
 {
-  bool eepromIsSet = EEPROM.read(temperatureHumidityDHTSensorReadIntervalIsSetFlagAddress) == 99;
-
-  if (eepromIsSet)
+  if (EEPROMFlagIsSet(temperatureHumidityDHTSensorReadIntervalIsSetFlagAddress))
   {
     if (isDebugMode)
     	Serial.println("EEPROM read interval value has been set. Loading.");
@@ -202,11 +200,6 @@ long getTemperatureHumidityDHTSensorReadingInterval()
   }
 }
 
-void removeEEPROMTemperatureHumidityDHTSensorReadingIntervalIsSetFlag()
-{
-    EEPROM.write(temperatureHumidityDHTSensorReadIntervalIsSetFlagAddress, 0);
-}
-
 void restoreDefaultTemperatureHumidityDHTSensorSettings()
 {
   restoreDefaultTemperatureHumidityDHTSensorReadingIntervalSettings();
@@ -214,7 +207,7 @@ void restoreDefaultTemperatureHumidityDHTSensorSettings()
 
 void restoreDefaultTemperatureHumidityDHTSensorReadingIntervalSettings()
 {
-  removeEEPROMTemperatureHumidityDHTSensorReadingIntervalIsSetFlag();
+  EEPROMRemoveFlag(temperatureHumidityDHTSensorReadIntervalIsSetFlagAddress);
 
   temperatureHumidityDHTSensorReadingIntervalInSeconds = 5;
   serialOutputIntervalInSeconds = 5;

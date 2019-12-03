@@ -37,9 +37,6 @@ void setTemperatureHumidityDHTSensorReadingInterval(long readInterval);
 
 long getTemperatureHumidityDHTSensorReadingInterval();
 
-void setEEPROMTemperatureHumidityDHTSensorReadingIntervalIsSetFlag();
-void removeEEPROMTemperatureHumidityDHTSensorReadingIntervalIsSetFlag();
-
 void restoreDefaultTemperatureHumidityDHTSensorSettings();
 void restoreDefaultTemperatureHumidityDHTSensorReadingIntervalSettings();
 #endif

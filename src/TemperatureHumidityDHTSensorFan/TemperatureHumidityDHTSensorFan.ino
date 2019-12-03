@@ -28,6 +28,7 @@ void setup()
 
   Serial.println("Online");
 
+  delay(2000);
 }
 
 void loop()
