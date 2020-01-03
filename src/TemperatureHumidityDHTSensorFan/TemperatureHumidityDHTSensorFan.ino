@@ -28,7 +28,8 @@ void setup()
 
   Serial.println("Online");
 
-  delay(2000);
+// TODO: Remove if not needed
+//  delay(2000);
 }
 
 void loop()
