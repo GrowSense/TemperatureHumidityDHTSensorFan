@@ -75,7 +75,8 @@ bool checkMsgReady()
       //}
     }
 
-    delay(1);
+    // TODO: Remove if not needed.
+    //delay(1);
   }
 
   return isMsgReady;
@@ -114,10 +115,12 @@ void printMsg(char msg[MAX_MSG_LENGTH])
 
 void clearMsg(char msgBuffer[MAX_MSG_LENGTH])
 {
-  for (int i = 0; i < 10; i++)
-  {
-    msgBuffer[i] = '\0';
-  }
+  // TODO: Remove if not needed
+  //for (int i = 0; i < MAX_MSG_LENGTH; i++)
+  //{
+  //  msgBuffer[i] = '\0';
+  //}
+  msgBuffer[0] = '\0';
 }
 
 char getCmdChar(char msg[MAX_MSG_LENGTH], int characterPosition)
