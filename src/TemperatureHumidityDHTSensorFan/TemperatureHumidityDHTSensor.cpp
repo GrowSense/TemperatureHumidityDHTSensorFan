@@ -37,7 +37,7 @@ void setupTemperatureHumidityDHTSensor()
     Serial.println("Setting up temperature humidity DHT sensor...");
 
   dht.setup(DHT11_PIN);
-  
+
   delay(dht.getMinimumSamplingPeriod());
 
   setupTemperatureHumidityDHTSensorReadingInterval();
@@ -48,7 +48,8 @@ void setupTemperatureHumidityDHTSensor()
 /* Sensor Readings */
 void takeTemperatureHumidityDHTSensorReading()
 {
-  bool sensorReadingIsDue = millis() - lastTemperatureHumidityDHTSensorReadingTime >= secondsToMilliseconds(temperatureHumidityDHTSensorReadingIntervalInSeconds);
+  bool sensorReadingIsDue = millis() - lastTemperatureHumidityDHTSensorReadingTime >= secondsToMilliseconds(temperatureHumidityDHTSensorReadingIntervalInSeconds)
+    || lastTemperatureHumidityDHTSensorReadingTime == 0;
 
   /*Serial.print("Sensor reading due: ");
   Serial.println(sensorReadingIsDue);
@@ -68,19 +69,19 @@ void takeTemperatureHumidityDHTSensorReading()
     //if (isDebugMode)
     //  Serial.println("Preparing to take reading");
 
-    
+
     //delay(dht.getMinimumSamplingPeriod());
-    
+
     humidityValue = dht.getHumidity();
-    
+
     if (isnan(humidityValue))
       humidityValue = 0;
-      
+
     temperatureValue = dht.getTemperature();
 
     if (isnan(temperatureValue))
       temperatureValue = 0;
-      
+
     /*if (isDebugMode)
     {
       Serial.println("Humidity:");
@@ -162,7 +163,7 @@ void setTemperatureHumidityDHTSensorReadingInterval(long newValue)
     Serial.print("Set sensor reading interval: ");
     Serial.println(newValue);
   }*/
-  
+
   // Set minimum interval to avoid issues with reading from the sensor too quickly
   if (newValue < minimumTemperatureHumidityDHTSensorReadingIntervalInSeconds)
   {
@@ -176,7 +177,7 @@ void setTemperatureHumidityDHTSensorReadingInterval(long newValue)
 
   EEPROMSetFlag(temperatureHumidityDHTSensorReadIntervalIsSetFlagAddress);
 
-  temperatureHumidityDHTSensorReadingIntervalInSeconds = newValue; 
+  temperatureHumidityDHTSensorReadingIntervalInSeconds = newValue;
 
   serialOutputIntervalInSeconds = newValue;
 }
