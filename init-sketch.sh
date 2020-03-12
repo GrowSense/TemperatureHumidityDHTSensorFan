@@ -1,1 +1,1 @@
-pio lib install -s dht
+pio lib install -s 1671
